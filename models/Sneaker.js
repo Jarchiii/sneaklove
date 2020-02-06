@@ -37,7 +37,7 @@ const sneakerSchema = new Schema({
 
   },
   image : String,
-  id_tag : 
+  id_tags : 
    {
      type : Schema.Types.ObjectId,
      ref : "Tag"
