@@ -8,20 +8,37 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 
-router.get("/sneakers/:cat", (req, res) => {
-  res.send("bar");
-});
+// router.get("/sneakers/:cat", (req, res) => {
+//   res.render("index");
+// });
 
-router.get("/one-product/:id", (req, res) => {
-  res.send("baz");
-});
+// router.get("/one-product/:id", (req, res) => {
+//   res.send("index");
+// });
+
+router.get("/sneakers/collection", (req,res) => {
+  res.render("products")
+})
+
+
+router.get("/sneakers/kids", (req,res) => {
+  res.render("menu/kids")
+})
+
+router.get("/sneakers/women", (req,res) => {
+  res.render("menu/women")
+})
+
+router.get("/sneakers/men", (req,res) => {
+  res.render("menu/men")
+})
 
 router.get("/signup", (req, res) => {
-  res.send("sneak");
+  res.render("signup");
 });
 
 router.get("/signin", (req, res) => {
-  res.send("love");
+  res.render("signin");
 });
 
 
