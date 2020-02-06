@@ -81,9 +81,7 @@ router.get("/signin", (req, res) => {
     });
   });
 
-  router.get("/dashboard_sneaker", (req, res) => {
-      res.render("products_manage");
-  })
+ 
 
 
   module.exports = router;
