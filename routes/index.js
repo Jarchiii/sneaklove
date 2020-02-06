@@ -1,8 +1,11 @@
 const express = require("express");
-const router = express.Router();
+const router = new express.Router();
+const userModel = require("../models/User");
+const tagModel = require("../models/Tag");
+const sneakerModel = require("../models/Sneaker");
 
 router.get("/", (req, res) => {
-  res.send("foo");
+  res.render("index");
 });
 
 router.get("/sneakers/:cat", (req, res) => {
