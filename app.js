@@ -15,7 +15,7 @@ const cookieParser = require("cookie-parser");
 
 // initial config
 app.set("view engine", "hbs");
-app.set("views", __dirname + "/view");
+app.set("views", __dirname + "/views");
 app.use(express.static("public"));
 hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.urlencoded({extended: false}));
@@ -73,11 +73,5 @@ app.use(eraseSessionMessage());
 // Getting/Using router(s)
 const basePageRouter = require("./routes/index");
 app.use("/", basePageRouter);
-
-app.listen(process.env.PORT, () => {
-  console.log(
-    `app started at ${process.env.SITE_URL}:${process.env.PORT}`
-  );
-});
 
 module.exports = app;
