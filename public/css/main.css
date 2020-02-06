@@ -51,48 +51,4 @@ h4 {
   display: flex;
 }
 
-/** kids session */
 
-.wrapper {
-  margin: 0 auto;
-  width: 1580px;
-}
-
-.h1-cat {
-  margin-top: 50px;
-  font-size: 40px;
-  margin-bottom: 40px;
-}
-
-.container-box {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.box-shoes {
-  width: 300px;
-  height: 300px;
-  border: 1px solid grey;
-  box-shadow: 2px 2px;
-}
-
-.img-shoes img {
-  height: 250px;
-  width: 300px;
-}
-
-.title-shoes h2 {
-  font-size: 20px;
-}
-
-.price {
-  font-size: 22px;
-  color: green;
-}
-
-.info-box-shoes {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}

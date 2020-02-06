@@ -8,30 +8,38 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 
-// router.get("/sneakers/:cat", (req, res) => {
-//   res.render("index");
-// });
-
-// router.get("/one-product/:id", (req, res) => {
-//   res.send("index");
-// });
-
 router.get("/sneakers/collection", (req,res) => {
-  res.render("products")
-})
+  sneakerModel
+    .find()
+    .then(dbRes => {
+      res.render("products", {
+        sneakers: dbRes
+      })
+    })
+    .catch(dbErr => console.error(dbErr))
+});
 
+router.get("/sneakers/:cat", (req, res) => {
+  sneakerModel
+    .find({category: req.params.cat})
+    .then(dbRes => {
+      res.render("products", {
+        sneakers: dbRes
+      })
+    })
+    .catch(dbErr => console.error(dbErr))
+});
 
-router.get("/sneakers/kids", (req,res) => {
-  res.render("menu/kids")
-})
-
-router.get("/sneakers/women", (req,res) => {
-  res.render("menu/women")
-})
-
-router.get("/sneakers/men", (req,res) => {
-  res.render("menu/men")
-})
+router.get("/one-product/:id", (req, res) => {
+  sneakerModel
+    .findById(req.params.id)
+    .then(dbRes => {
+      res.render("one_product", {
+        sneaker: dbRes
+      })
+    })
+    .catch(dbErr => console.error(dbErr))
+});
 
 router.get("/signup", (req, res) => {
   res.render("signup");

@@ -79,13 +79,10 @@ app.use(eraseSessionMessage());
 const basePageRouter = require("./routes/index");
 app.use("/", basePageRouter);
 
-<<<<<<< HEAD
 // app.listen(process.env.PORT, () => {
 //   console.log(
 //     `app started at ${process.env.SITE_URL}:${process.env.PORT}`
 //   );
 // });
 
-=======
->>>>>>> 725431ee35c063d458ea313e9469c157a8951c99
 module.exports = app;
