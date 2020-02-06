@@ -1,18 +1,41 @@
-  <div class="wrapper">
-    <h1 class="h1-cat">Sneakers for kids</h1>
-    <div class="container-box">
-        <div class="box-shoes">
-            <div class="img-shoes">
-                <img src="">
-            </div>
-            <div class="info-box-shoes">
-                <div class="title-shoes">
-                    <h2>Nike Air 2009</h2>
-                </div>
-                <div class="price-shoes">
-                    <span class="price">100€</span>
-                </div>
-            </div>
-        </div>
+<div class="main-content-products flexed-item big-container">
+
+  {{!-- CATEGORY --}}
+  <aside class="tag-wrapper">
+    <h4 class="tag-title">All Tags</h4>
+    <ul id="tag_list" class="tag-list" data-category="{{category}}">
+      {{#each tags}}
+      <li class="tag-list-item">
+        <input id="input_{{this._id}}" type="checkbox" data-tag-id="{{this._id}}" class="checkbox" />
+        <label for="input_{{this._id}}">{{this.name}}</label>
+      </li>
+      {{/each}}
+    </ul>
+  </aside>
+
+  {{!-- PRODUCTS--}}
+  <section class="products-wrapper">
+    <div class="products-infos">
+      <h4 class="products-title">
+        {{#compare category "collection" operator="==="}}
+        Whole
+        {{/compare}}
+        {{#compare category "collection" operator="!="}}
+        {{category}}
+        {{/compare}}
+        collection <span id="products_count" class="products-count">({{sneakers.length}})</span>
+      </h4>
+      <p class="products-subtitle">Prepare for your miles with the latest styles and colors of women’s running shoes.
+        Take advantage of signature a footwear technologies including Zoom, Flyknite, and find the
+        pairs running shoes that align with your running philosophy.</p>
     </div>
-</div>  
+    {{#unless sneakers}}
+    <p>Sorry, no sneakers yet !</p>
+    {{/unless}}
+    <div id="products_grid" class="products-grid flexed-item">
+      {{#each sneakers}}
+      {{> sneaker_mini }}
+      {{/each}}
+    </div>
+  </section>
+</div>
