@@ -79,6 +79,9 @@ app.use(eraseSessionMessage());
 const basePageRouter = require("./routes/index");
 app.use("/", basePageRouter);
 
+const accessRouter = require("./routes/auth");
+app.use("/", accessRouter);
+
 // app.listen(process.env.PORT, () => {
 //   console.log(
 //     `app started at ${process.env.SITE_URL}:${process.env.PORT}`
