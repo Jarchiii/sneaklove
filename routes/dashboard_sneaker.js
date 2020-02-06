@@ -26,16 +26,22 @@ router.get("/dashboard_sneaker", (req, res) => {
        
   });
 
-  router.post("/prod-edit/:id", (req, res) => {
+  router.post("/product-edit/:id", (req, res) => {
+    const {name, text, size, description, price, category, tags} = req.body;
+
     sneakerModel
-    .findByIdAndUpdate(req.params.id, req.body)
-    .then(dbRes => {
-        res.render("prod-edit", {
-            sneaker: dbRes
-        })
+    .findByIdAndUpdate(req.params.id, {
+      name,
+      text,
+      size,
+      description,
+      price,
+      category,
+      tags
     })
+    .then(res.redirect("/dashboard_sneaker"))
     .catch(dbErr => console.error(dbErr));
-  })
+  });
 
   router.get("/delete/:id", (req, res) => {
       sneakerModel
