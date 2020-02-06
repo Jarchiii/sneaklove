@@ -74,10 +74,10 @@ app.use(eraseSessionMessage());
 const basePageRouter = require("./routes/index");
 app.use("/", basePageRouter);
 
-app.listen(process.env.PORT, () => {
-  console.log(
-    `app started at ${process.env.SITE_URL}:${process.env.PORT}`
-  );
-});
+// app.listen(process.env.PORT, () => {
+//   console.log(
+//     `app started at ${process.env.SITE_URL}:${process.env.PORT}`
+//   );
+// });
 
 module.exports = app;
