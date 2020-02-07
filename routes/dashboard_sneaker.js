@@ -55,9 +55,17 @@ router.get("/dashboard_sneaker", protectRoute, (req, res) => {
   })
 
   router.get("/prod-add", protectRoute, (req, res) => {
-    res.render("products_add")
+   tagModel
+    .find()
+    .then(tag => {
+      res.render("products_add", {
+        tags: tag
+    })
+  })
   })
 
+
+  
   router.post("/prod-add", (req, res) => {
     const newSneaker = req.body;
     sneakerModel
