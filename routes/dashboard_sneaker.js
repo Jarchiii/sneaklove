@@ -18,13 +18,16 @@ router.get("/dashboard_sneaker", protectRoute, (req, res) => {
   router.get("/product-edit/:id", protectRoute, (req, res) => {
     sneakerModel
         .findById(req.params.id)
-        .then(dbRes => {
+        .then(sneaker => {
+          tagModel.find().then(tag => {
             res.render("product_edit", {
-                sneaker: dbRes
-            })
+              sneaker: sneaker,
+              tags: tag
+          })
+        })
+ 
         })
         .catch(dbErr => console.error(dbErr));
-       
   });
 
   router.post("/product-edit/:id", protectRoute, (req, res) => {
