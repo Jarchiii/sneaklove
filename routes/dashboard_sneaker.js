@@ -2,6 +2,7 @@ const express = require("express"); // import express in this module
 const router = new express.Router(); // create an app sub-module (router)
 const userModel = require("../models/User");
 const sneakerModel = require("../models/Sneaker");
+const tagModel = require("../models/Tag")
 
 router.get("/dashboard_sneaker", (req, res) => {
     sneakerModel
@@ -61,5 +62,19 @@ router.get("/dashboard_sneaker", (req, res) => {
       .then(res.redirect("/dashboard_sneaker"))
       .catch(dbErr => console.error(dbErr));
   });
+
+
+  router.get("/create-tag", (req, res) => {
+    res.render("products_add")
+  })
+
+  router.post("/create-tag", (req, res) => {
+    const newTag = req.body;
+    console.log(req.body)
+    tagModel
+    .create(newTag)
+    .then(res.redirect("/prod-add"))
+    .catch(dbErr => console.error(dbErr));
+  })
 
 module.exports = router;

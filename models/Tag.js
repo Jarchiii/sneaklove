@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const tagSchema = new Schema({
     label : {
         type: String,
-        enum: ["Street", "Classic", "Casual", "Running", "Fancy"],
+        unique: true,
         required: true
     }
 });
