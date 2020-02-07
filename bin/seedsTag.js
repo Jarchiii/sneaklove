@@ -1,7 +1,7 @@
 const TagModel = require("./../models/Tag");
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost/sneakerLover", {useNewUrlParser: true});
+// mongoose.connect("mongodb://localhost/sneakerLover", {useNewUrlParser: true});
 
 const tags = [
     {
@@ -20,11 +20,19 @@ const tags = [
         label: "Running"
     }
 ]
-
+var TagsId = []
 function insertTag() {
-    TagModel.insertMany(tags)
-      .then(dbRes => console.log(dbRes))
-      .catch(dbErr => console.log(dbErr));
+   return TagModel.insertMany(tags)
+     
   }
 
-  insertTag();
+
+
+
+
+
+
+
+
+
+  

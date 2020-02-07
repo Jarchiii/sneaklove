@@ -1,11 +1,11 @@
 const SneakerModel = require("./../models/Sneaker");
 const mongoose = require("mongoose");
-
+​
 mongoose.connect("mongodb://localhost/sneakerLover", {useNewUrlParser: true});
-
-
+​
+​
 const sneakers = [
-
+​
    { 
     name : "Running Homme",
     ref : "1-1",
@@ -156,19 +156,25 @@ const sneakers = [
 //     image : "medias/img/sneakersKids/00-5.png",
 //     id_tags: "5e3c27bcaceae653db193842"
 //     }
-
-
-
-
-
-
-
+​
+​
+​
+​
+​
+​
+​
 ]
-
+​
 function insertSneaker() {
     SneakerModel.insertMany(sneakers)
       .then(dbRes => console.log(dbRes))
       .catch(dbErr => console.log(dbErr));
   }
-
+​
   insertSneaker();
+
+
+
+
+
+
