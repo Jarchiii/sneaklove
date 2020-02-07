@@ -1,9 +1,9 @@
 const express = require("express"); // import express in this module
 const router = new express.Router(); // create an app sub-module (router)
-const userModel = require("../models/User");
 const sneakerModel = require("../models/Sneaker");
+const protectRoute = require("./../middlewares/protectRoute");
 
-router.get("/dashboard_sneaker", (req, res) => {
+router.get("/dashboard_sneaker", protectRoute, (req, res) => {
     sneakerModel
       .find()
       .then(dbRes => {
@@ -14,7 +14,7 @@ router.get("/dashboard_sneaker", (req, res) => {
       .catch(dbErr => console.log(dbErr));
   });
 
-  router.get("/product-edit/:id", (req, res) => {
+  router.get("/product-edit/:id", protectRoute, (req, res) => {
     sneakerModel
         .findById(req.params.id)
         .then(dbRes => {
@@ -26,7 +26,7 @@ router.get("/dashboard_sneaker", (req, res) => {
        
   });
 
-  router.post("/product-edit/:id", (req, res) => {
+  router.post("/product-edit/:id", protectRoute, (req, res) => {
     const {name, text, size, description, price, category, tags} = req.body;
 
     sneakerModel
@@ -43,14 +43,14 @@ router.get("/dashboard_sneaker", (req, res) => {
     .catch(dbErr => console.error(dbErr));
   });
 
-  router.get("/delete/:id", (req, res) => {
+  router.get("/delete/:id", protectRoute, (req, res) => {
       sneakerModel
         .findByIdAndDelete(req.params.id)
         .then(res.redirect("/dashboard_sneaker"))
         .catch(dbErr => console.error(dbErr));
   })
 
-  router.get("/prod-add", (req, res) => {
+  router.get("/prod-add", protectRoute, (req, res) => {
     res.render("products_add")
   })
 
