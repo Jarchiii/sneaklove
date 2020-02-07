@@ -11,9 +11,13 @@ router.get(["/", "/home"], (req, res) => {
 router.get("/sneakers/collection", (req,res) => {
   sneakerModel
     .find()
-    .then(dbRes => {
-      res.render("products", {
-        sneakers: dbRes
+    .then(sneakers => {
+      tagModel.find().then(tags => {
+        res.render("products", {
+          sneakers: sneakers,
+          tags: tags
+        })
+
       })
     })
     .catch(dbErr => console.error(dbErr))
