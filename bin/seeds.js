@@ -3,6 +3,12 @@ const mongoose = require("mongoose");
 ​
 mongoose.connect("mongodb://localhost/sneakerLover", {useNewUrlParser: true});
 ​
+
+const sizes = {
+  men : [""],
+  women: [""],
+  
+}
 ​
 const sneakers = [
 ​
