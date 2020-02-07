@@ -50,4 +50,16 @@ router.get("/dashboard_sneaker", (req, res) => {
         .catch(dbErr => console.error(dbErr));
   })
 
+  router.get("/prod-add", (req, res) => {
+    res.render("products_add")
+  })
+
+  router.post("/prod-add", (req, res) => {
+    const newSneaker = req.body;
+    sneakerModel
+      .create(newSneaker)
+      .then(res.redirect("/dashboard_sneaker"))
+      .catch(dbErr => console.error(dbErr));
+  });
+
 module.exports = router;
